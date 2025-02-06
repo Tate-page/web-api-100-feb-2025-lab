@@ -1,0 +1,9 @@
+# For more info on HTTP files go to https://aka.ms/vs/httpfile
+
+POST http://localhost:1337/technicians
+{
+  "name" : "Jeff",
+  "email" : "JeffGonz@gmail.com"
+  "phone" : "(404)821-1269"
+  "Authorization" : "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1bmlxdWVfbmFtZSI6IklUVVN0dWRlbnQiLCJzdWIiOiJJVFVTdHVkZW50IiwianRpIjoiYmM1YmQyNyIsInJvbGUiOlsibWFuYWdlciIsInNvZnR3YXJlLWNlbnRlciJdLCJhdWQiOlsiaHR0cDovL2xvY2FsaG9zdDo1NDgxNyIsImh0dHBzOi8vbG9jYWxob3N0OjAiLCJodHRwOi8vbG9jYWxob3N0OjEzMzciXSwibmJmIjoxNzM4ODc3ODk2LCJleHAiOjE3NDY1Njc0OTYsImlhdCI6MTczODg3Nzg5NywiaXNzIjoiZG90bmV0LXVzZXItand0cyJ9.I0Wt4D5oxHHh2Bn1TdZHvBC_135iU7dTY241mEM1M40"
+}

@@ -2,13 +2,14 @@ using FluentValidation;
 using Marten;
 using MicroElements.Swashbuckle.FluentValidation.AspNetCore;
 using SoftwareCatalog.Api.Catalog;
+using SoftwareCatalog.Api.Technicians;
 using SoftwareCatalog.Api.Vendors;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 
-builder.Services.AddAuthentication().AddJwtBearer();
+builder.Services.AddAuthentication("Bearer").AddJwtBearer();
 builder.Services.AddHttpContextAccessor();
 
 builder.Services.AddControllers();
@@ -20,6 +21,7 @@ builder.Services.AddSwaggerGen();
 // This is saying use the "System" time provider, anywhere we need an instance of the TimeProvider
 
 builder.Services.AddScoped<IValidator<CatalogItemRequestModel>, CatalogItemRequestModelValidator>();
+builder.Services.AddScoped<IValidator<TechnicianBeforeDBCreation>, AddTechnicianRequestValidator>();
 
 builder.Services.AddVendors();
 builder.Services.AddSingleton<TimeProvider>((_) => TimeProvider.System);
@@ -49,7 +51,8 @@ app.UseAuthorization();
 app.MapControllers(); // this will scan your entire project for any controllers, use the attributes (HttpGet, etc.) to create
 // a "route table" - like a phone book. Reflection (the ability to have code look at itself)
 
-  app.MapVendors();
+app.MapVendors();
+
 app.Run(); // a blocking infinite for loop.
 
 // I will explain this later if you:
